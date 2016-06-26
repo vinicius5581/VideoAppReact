@@ -9,12 +9,12 @@ import ReactDOM from 'react-dom';
  * @return {[type]} [description]
  */
 
-///////////////////////////////////////////////
-// A Functional Component                    //
-// -- Since it literally is a function. Duh! //
-// One function, some info goes in and some  //
-// JSX comes out. Very simple				 //
-///////////////////////////////////////////////
+//////////////////////////////////////////////
+// A Functional Component                   //
+// -- Since it literally is a function. Duh //
+// One function, some info goes in and some //
+// JSX comes out. Very simple               //
+//////////////////////////////////////////////
 // const SearchBar = () => {
 //     return <input />
 // }
@@ -32,12 +32,24 @@ import ReactDOM from 'react-dom';
 // ---- JS Object with Properties and Methods    //
 ///////////////////////////////////////////////////
 class SearchBar extends Component {
+    ///////////////////////////////////////////////
+    // Event Handler                             //
+    // -- Function runs whenever an Event occurs //
+    // -- Naming the Handler                     //
+    // Generally 'on' or 'handle'                //
+    // Then the 'name' of the element            //
+    // Then the 'name' of the event itself       //
+    ///////////////////////////////////////////////
+    // onInputChange(event) {
+    //     console.log(event.target.value);
+    // }
+
     //////////////////////////////////////////////
     // Each component MUST have a Render Method //
     // The ability to render itself somehow.    //
     //////////////////////////////////////////////
     render() {
-        return <input />;
+        return <input onChange={event => console.log(event.target.value)} />;
     }
 }
 
