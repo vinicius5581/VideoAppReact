@@ -4,13 +4,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-/////////////////////////////////////////////////////////////////
-// Create a new Component.                                     //
-// -- This component should produce some HTML                  //
-// ---- A component is a function or an object that returns    //
-// 		some amount of HTML. We can have different components  //
-// 		for different functions. For diff purposes.            //
-/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+// Create a new Component.                                  //
+// -- This component should produce some HTML               //
+// ---- A component is a function or an object that returns //
+// some amount of HTML. We can have different components    //
+// for different functions. For diff purposes.              //
+//////////////////////////////////////////////////////////////
 
 /**
  * [Just a Component]
