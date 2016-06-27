@@ -2,15 +2,15 @@
  * Forming a Connection to React and other modules
  */
 import React, { Component } from 'react';
-import ReactDOM 			from 'react-dom';
-import LetsSearchVidz 		from 'youtube-api-search';
+import ReactDOM from 'react-dom';
+import LetsSearchVidz from 'youtube-api-search';
 
 /**
  * Forming a Connection to sub-components
  */
-import SearchBar 	from './components/search_bar';
-import VideoList 	from './components/video_list';
-import VideoDetail 	from './components/video_detail';
+import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
 
 /**
  * YouTube Data API v3 - Browser Key
@@ -57,29 +57,29 @@ class VideoAppZ extends Component {
     constructor(props) {
         super(props);
 
-        /////////////////////////////////////////////////////////
-        // Initially 'bunchAvidz' starts off as an empty Array //
-        /////////////////////////////////////////////////////////
-        this.state = { 
-        	bunchAvidz: [],
-        	only1vid: null
+        ///////////////////////////////////////////////////////////
+        // Initially 'bunchAvideos' starts off as an empty Array //
+        ///////////////////////////////////////////////////////////
+        this.state = {
+            bunchAvideos: [],
+            selectedVideo: null
         };
 
-        //////////////////////////////////////////////////////////////////
-        // The instant the component is rendered, it kicks off a search //
-        // and it'll update 'bunchAvidz' with the search results.       //
-        //////////////////////////////////////////////////////////////////
-        LetsSearchVidz({ key: API_KEY, term: '2017 ZL1' }, (bunchAvidz) => {
-            console.log(bunchAvidz);
-            // this.setState({ bunchAvidz: bunchAvidz });
+        ////////////////////////////////////////////////////////////////////
+        // The instant the component is rendered, it kicks off a search   //
+        // and it'll update 'bunchAvideos' with the search results.       //
+        ////////////////////////////////////////////////////////////////////
+        LetsSearchVidz({ key: API_KEY, term: '2017 ZL1' }, (bunchAvideos) => {
+            console.log(bunchAvideos);
+            // this.setState({ bunchAvideos: bunchAvideos });
             /////////////////////////////////////////////////
             // -- If the key and value names are the same, //
             // fork ES6's syntactic sugar :)               //
             // It'll do the work for you                   //
             /////////////////////////////////////////////////
-            this.setState({ 
-            	bunchAvidz: bunchAvidz,
-            	only1vid: bunchAvidz[0]
+            this.setState({
+                bunchAvideos: bunchAvideos,
+                selectedVideo: bunchAvideos[0]
             });
         });
     }
@@ -89,12 +89,10 @@ class VideoAppZ extends Component {
             <div>
 				<p>I will be playing a couple of videos here :)</p>
 				<p>Search for Videos: <SearchBar /></p>
-				<div>
-					<VideoDetail video={this.state.only1vid} />
-				</div>
-				<div>
-					<VideoList videos={this.state.bunchAvidz} />
-				</div>
+				<VideoDetail video={ this.state.selectedVideo } />
+				<VideoList 
+					onVideoSelect={ selectedVideo => this.setState({ selectedVideo }) }
+					videos={ this.state.bunchAvideos } />
 			</div>
         );
     }

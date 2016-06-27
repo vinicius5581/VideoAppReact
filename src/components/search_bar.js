@@ -72,7 +72,7 @@ class SearchBar extends Component {
         // Value only ever changes when the 'state' changes. //
         ///////////////////////////////////////////////////////
         return (
-            <span>
+            <span className="search-bar">
         		<input 
         			value={ this.state.term }
         			onChange={event => this.setState({ term: event.target.value })} />
