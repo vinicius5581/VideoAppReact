@@ -44,14 +44,43 @@ class SearchBar extends Component {
     //     console.log(event.target.value);
     // }
 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    // React State (hardest to understand topic in React, front center for Redux)        //
+    // -- A JS Object used to record and react to user events.                           //
+    // Each class based component has its own state object.                              //
+    // Whenever a component's state is changed, the component immediately re-renders.    //
+    // Which also forces it's children to re-render as well.                             //
+    // -- How to initialize the 'state' object.                                          //
+    // We set the property 'state' to a JS Object inside the class' constructure method. //
+    // -- 'Super'                                                                        //
+    // We can call a parent method on the parent class by calling 'super'                //
+    ///////////////////////////////////////////////////////////////////////////////////////
+    constructor(props) {
+        super(props);
+
+        this.state = { term: '' };
+    }
+
     //////////////////////////////////////////////
     // Each component MUST have a Render Method //
     // The ability to render itself somehow.    //
     //////////////////////////////////////////////
     render() {
-        return <input onChange={event => console.log(event.target.value)} />;
+        ///////////////////////////////////////////////////////
+        // Controlled Field / Form Element - 'INPUT'         //
+        // -- A Form Element whose value is set by 'state'   //
+        // Value only ever changes when the 'state' changes. //
+        ///////////////////////////////////////////////////////
+        return (
+            <div>
+        		<input 
+        			value={ this.state.term }
+        			onChange={event => this.setState({ term: event.target.value })} />
+        	</div>
+        );
     }
 }
+
 
 /**
  * Let's export the SearchBar Code to other files.
