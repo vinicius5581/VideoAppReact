@@ -63,13 +63,14 @@ class VideoAppReact extends Component {
         ///////////////////////////////////////////////////////////
         this.state = {
             bunchAvideos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            term: 'Aventador'
         };
 
         ////////////////////////////////////////////////////////
         // Initially run the videoSearch with something in it //
         ////////////////////////////////////////////////////////
-        this.videoSearch('Lamborghini');
+        this.videoSearch(this.state.term);
     }
 
     /**
@@ -83,7 +84,7 @@ class VideoAppReact extends Component {
         // and it'll update 'bunchAvideos' with the search results.       //
         ////////////////////////////////////////////////////////////////////
         LetsSearchVidz({ key: API_KEY, term: term }, (bunchAvideos) => {
-            console.log(bunchAvideos);
+            // console.log(bunchAvideos);
             // this.setState({ bunchAvideos: bunchAvideos });
             /////////////////////////////////////////////////
             // -- If the key and value names are the same, //
@@ -92,7 +93,8 @@ class VideoAppReact extends Component {
             /////////////////////////////////////////////////
             this.setState({
                 bunchAvideos: bunchAvideos,
-                selectedVideo: bunchAvideos[0]
+                selectedVideo: bunchAvideos[0],
+                term: term
             });
         });
     }
@@ -116,6 +118,7 @@ class VideoAppReact extends Component {
 					<SearchBar 
 						onSearchTermChange={videoSearch} />
 				</p>
+                <p>You searched for: <strong>{this.state.term}</strong></p>
 				<VideoDetail
 					video={ this.state.selectedVideo } />
 				<VideoList 
