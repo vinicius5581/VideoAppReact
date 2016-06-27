@@ -40,9 +40,16 @@ class SearchBar extends Component {
     // Then the 'name' of the element            //
     // Then the 'name' of the event itself       //
     ///////////////////////////////////////////////
-    // onInputChange(event) {
-    //     console.log(event.target.value);
-    // }
+
+    /**
+     * Update the Search 'term' when the Input's Value changes
+     * @param  {String} term The term that the user is searching for
+     * @return {Object}      Return the new term
+     */
+    onInputChange(term) {
+        this.setState({ term });
+        this.props.onSearchTermChange(term);
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////
     // React State (hardest to understand topic in React, front center for Redux)        //
@@ -73,10 +80,10 @@ class SearchBar extends Component {
         ///////////////////////////////////////////////////////
         return (
             <span className="search-bar">
-        		<input 
-        			value={ this.state.term }
-        			onChange={event => this.setState({ term: event.target.value })} />
-        	</span>
+                <input 
+                    value={ this.state.term }
+                    onChange={ event => this.onInputChange(event.target.value) } />
+            </span>
         );
     }
 }
