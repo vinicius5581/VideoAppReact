@@ -2,13 +2,15 @@
  * Forming a Connection to React and other modules
  */
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import LetsSearchVidz from 'youtube-api-search';
+import ReactDOM 			from 'react-dom';
+import LetsSearchVidz 		from 'youtube-api-search';
 
 /**
  * Forming a Connection to sub-components
  */
-import SearchBar from './components/search_bar';
+import SearchBar 	from './components/search_bar';
+import VideoList 	from './components/video_list';
+import VideoDetail 	from './components/video_detail';
 
 /**
  * YouTube Data API v3 - Browser Key
@@ -58,7 +60,10 @@ class VideoAppZ extends Component {
         /////////////////////////////////////////////////////////
         // Initially 'bunchAvidz' starts off as an empty Array //
         /////////////////////////////////////////////////////////
-        this.state = { bunchAvidz: [] };
+        this.state = { 
+        	bunchAvidz: [],
+        	only1vid: null
+        };
 
         //////////////////////////////////////////////////////////////////
         // The instant the component is rendered, it kicks off a search //
@@ -72,7 +77,10 @@ class VideoAppZ extends Component {
             // fork ES6's syntactic sugar :)               //
             // It'll do the work for you                   //
             /////////////////////////////////////////////////
-            this.setState({ bunchAvidz });
+            this.setState({ 
+            	bunchAvidz: bunchAvidz,
+            	only1vid: bunchAvidz[0]
+            });
         });
     }
 
@@ -81,6 +89,12 @@ class VideoAppZ extends Component {
             <div>
 				<p>I will be playing a couple of videos here :)</p>
 				<p>Search for Videos: <SearchBar /></p>
+				<div>
+					<VideoDetail video={this.state.only1vid} />
+				</div>
+				<div>
+					<VideoList videos={this.state.bunchAvidz} />
+				</div>
 			</div>
         );
     }
