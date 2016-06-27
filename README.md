@@ -6,6 +6,9 @@ We'll use an **input string** from the **SearchBar** component, give that to a *
 
 We can aslo click on a single video from the **VideoList** that gets built on the right hand side based on the **input string** from the **SearchBar** component.
 
+##Checkout the GH Page for this App##
+[Video App React PAGE :)](https://zainxyz.github.io/VideoAppReact/)
+
 ###Join Me###
 
 Fork this project and start going through the simple ReactJS code for the Video Project :).
