@@ -110,8 +110,8 @@ class VideoAppReact extends Component {
         const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 
         return (
-            <div>
-				<p>I will be playing a couple of videos here :)</p>
+            <div className="video-app-react">
+				<h3>Let's find you some Videos :)</h3>
 				<p>Search for Videos:
 					<SearchBar 
 						onSearchTermChange={videoSearch} />
@@ -130,4 +130,4 @@ class VideoAppReact extends Component {
  * Take this Component's generated HTML and put it
  * on the page (in the DOM).
  */
-ReactDOM.render(<VideoAppReact />, document.querySelector('.container'));
+ReactDOM.render(<VideoAppReact />, document.querySelector('#app_container'));

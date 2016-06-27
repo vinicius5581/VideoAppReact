@@ -2,6 +2,11 @@ html {
     font-size: 62.5%;
 }
 
+.video-app-react > h3 {
+    text-align: center;
+    margin: 2rem 0;
+}
+
 .search-bar {
     margin: 2rem;
     text-align: center;
@@ -11,21 +16,33 @@ html {
     width: 75%;
 }
 
+.video-list h5, .video-detail h5 {
+    text-align: center;
+}
+
 .video-item img {
     max-width: 6.4rem;
 }
 
 .video-detail .details {
-	margin-top: 1rem;
-	padding: 1rem;
-	border: .1rem solid #DDD;
-	border-radius: .4rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: .1rem solid #DDD;
+    border-radius: .4rem;
+}
+
+.video-detail .details div:first-of-type {
+    font-weight: 700;
+}
+
+.video-detail .details div:last-of-type {
+    font-style: italic;
 }
 
 .list-group-item {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .list-group-item:hover {
-	background-color: #EEE;
+    background-color: #EEE;
 }
